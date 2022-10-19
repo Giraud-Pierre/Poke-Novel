@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7506875503275380665}
   - component: {fileID: 2340718796513341180}
   - component: {fileID: 563450869993841296}
-  - component: {fileID: 7295766357246327046}
   m_Layer: 5
   m_Name: ReturnButton
   m_TagString: Untagged
@@ -122,34 +121,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2340718796513341180}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7295766357246327046}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: ChangeMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7295766357246327046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4634140593973229277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c295c3611e70ad4891de01ff3e3a4f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMenu: {fileID: 5245648113914265491}
-  nextMenu: {fileID: 6897774043652039751, guid: 794bc08998810d144bae045a9573059d,
-    type: 3}
+      m_Calls: []
 --- !u!1 &5035116348512429034
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +269,6 @@ GameObject:
   - component: {fileID: 5245648113322876187}
   - component: {fileID: 5245648113322876196}
   - component: {fileID: 5245648113322876197}
-  - component: {fileID: 2293995216959714789}
   m_Layer: 5
   m_Name: PokemonButton
   m_TagString: Untagged
@@ -406,34 +377,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5245648113322876196}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2293995216959714789}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: ChangeMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2293995216959714789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245648113322876199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c295c3611e70ad4891de01ff3e3a4f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMenu: {fileID: 5245648113914265491}
-  nextMenu: {fileID: 9052049746779482413, guid: 0d3e7dc1bcf25244e87e93e35ba03d3f,
-    type: 3}
+      m_Calls: []
 --- !u!1 &5245648113914265491
 GameObject:
   m_ObjectHideFlags: 0

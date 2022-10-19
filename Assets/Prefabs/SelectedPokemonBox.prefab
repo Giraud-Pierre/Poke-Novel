@@ -147,7 +147,6 @@ GameObject:
   - component: {fileID: 9052049745285260195}
   - component: {fileID: 9052049745285260194}
   - component: {fileID: 9052049745285260193}
-  - component: {fileID: 7467496365548979297}
   m_Layer: 5
   m_Name: ReturnButton
   m_TagString: Untagged
@@ -257,34 +256,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9052049745285260194}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7467496365548979297}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: ChangeMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7467496365548979297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9052049745285260199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c295c3611e70ad4891de01ff3e3a4f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMenu: {fileID: 9052049746779482413}
-  nextMenu: {fileID: 5245648113914265491, guid: 4c3b2141996e986458790b3178153110,
-    type: 3}
+      m_Calls: []
 --- !u!1 &9052049745638066332
 GameObject:
   m_ObjectHideFlags: 0

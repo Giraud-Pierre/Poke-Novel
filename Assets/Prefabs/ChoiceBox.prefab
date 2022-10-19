@@ -347,7 +347,6 @@ GameObject:
   - component: {fileID: 399407643145554291}
   - component: {fileID: 744410745474421422}
   - component: {fileID: 5799838316487700117}
-  - component: {fileID: 2572985035285258785}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -457,34 +456,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 744410745474421422}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2572985035285258785}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: ChangeMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2572985035285258785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7084084228110160811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c295c3611e70ad4891de01ff3e3a4f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMenu: {fileID: 5808835122992693173}
-  nextMenu: {fileID: 6897774043652039751, guid: 794bc08998810d144bae045a9573059d,
-    type: 3}
+      m_Calls: []
 --- !u!1 &9215623295656524863
 GameObject:
   m_ObjectHideFlags: 0
