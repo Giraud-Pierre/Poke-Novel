@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 3014999055170225055}
   - component: {fileID: 1940392785440096668}
   - component: {fileID: 4524925305634421866}
+  - component: {fileID: 5466658348439148889}
   m_Layer: 5
   m_Name: MovementBox
   m_TagString: Untagged
@@ -334,3 +335,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5466658348439148889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7902355533669065446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c030b497cbf784b83fac5047a1aae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  buttonPrefab: {fileID: 1357803730292863147, guid: 3f2a70368d5e3e248991362ba0f45bda,
+    type: 3}
