@@ -5,24 +5,38 @@ using TMPro;
 
 public class GenerateMoveChoice : MonoBehaviour
 {
-    [SerializeField] private GameObject player = default;
+    [SerializeField] private Player player = default;
+    [SerializeField] private MovementTable MovementTable = default;
     [SerializeField] private GameObject buttonPrefab = default;
-
+    
+    
     private void Start()
     {
-        GenerateButton(new List<string>{"zone1","zone2","zone3"});
-        //  switch (player.place) {
-        //     case bedroom:
-        //         GenerateButton();
-        //         break;
-        //  }
+        switch (player.location)
+        {
+            case "Chambre":
+                GenerateButton(MovementTable.Bedroom);
+                break ;
+            case "Salon":
+                GenerateButton(MovementTable.Livingroom);
+                break ;
+            case "Village":
+                GenerateButton(MovementTable.Village);
+                break;
+            case "Maison du rival":
+                GenerateButton(MovementTable.RivalHouse);
+                break;
+            case "Laboratoire":
+                GenerateButton(MovementTable.Laboratory);
+                break;
+        }
     }
 
     private void GenerateButton(List<string> mylist)
     {
         GameObject currentButton = gameObject.transform.GetChild(0).gameObject;
         currentButton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = mylist[0];
-        // currentButton.GetComponent<MoveController>().MovePlace(mylist[0]);
+        currentButton.GetComponent<MoveController>().SetMove(mylist[0]);
 
         if (mylist.Count != 1)
         {
@@ -34,7 +48,7 @@ public class GenerateMoveChoice : MonoBehaviour
                 );
                 nextButton.transform.SetParent(currentButton.transform, false);
                 nextButton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = mylist[i];
-                // nextButton.GetComponent<MoveController>().MovePlace(mylist[i]);
+                nextButton.GetComponent<MoveController>().SetMove(mylist[i]);
 
                 currentButton = nextButton;
             }
