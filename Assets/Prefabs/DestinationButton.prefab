@@ -163,7 +163,7 @@ MonoBehaviour:
   RivalMomSprite: {fileID: 21300000, guid: 4ebb5bd2d6efcfd459c2a31d83b1a265, type: 3}
   ProfessorSprite: {fileID: 21300000, guid: 7109b927c680ce646a3d14234e1a73b1, type: 3}
   RivalSprite: {fileID: 21300000, guid: a15000afa6666cf4c9d0c85ff84127e1, type: 3}
-  RandomAnnoyingDude: {fileID: 21300000, guid: 8a3157769df5dba4d87e42b1c68625b8, type: 3}
+  RandomAnnoyingDude: {fileID: 21300000, guid: e04299e70f6b36647ad308bb045b4c98, type: 3}
 --- !u!1 &8596460061684567278
 GameObject:
   m_ObjectHideFlags: 0
