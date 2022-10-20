@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5a81bada5d642469d12518c7a4bd64, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  mom:
+  - "Maman : Bonjour mon ch\xE9ri, il enfin temps pour toi d'aller chercher ton premier
+    pokemon"
+  - 'Maman : Le professeur Pin t''attend dans son laboratoire. Ne le fais pas attendre
+    !'
+  randomAnnoyingDude:
+  - "P\xEAcheur : Fais attention ! Le monde est plein de pokemons sauvages!"
+  - "P\xEAcheur : Si tu n'a pas de Pokemon pour te d\xE9fendre et que tu te fait
+    attaquer,"
+  - "P\xEAcheur : cela pourrait mal tourner pour toi !"
+  professorPine:
+  - 'Professeur Pin : Bienvenue Red, il est grand temps que tu obtienne ton premier
+    pokemon,'
+  - 'Professeur Pin : Une grand aventure t''attend ! Choisis un des trois pokemons
+    que voici.'
+  rivalBattle:
+  - 'Red : He bien, il t''en aura fallu du temps, minable!'
+  - 'Red : Maintenant que tu as enfin ton pokemon, voyons-voir lequel de nos deux
+    pokemon est le plus fort !'
+  rivalVictory:
+  - 'Red : Nooon ! C''est impossible ! Comment as-tu pu gagner ?'
+  - "Red : Ce n'est que partie remise ! Je vais entra\xEEner mon pokemon d'arrache-pied
+    et en capturer plein d'autre"
+  - 'Red : On verra bien qui de nous deux est le plus fort, minable !'
+  rivalDefeat:
+  - 'Red : Pokemon maigrichon pour un dresseur de pacotille, vous allez bien ensemble.'
+  - 'Red : Ne t''en veux pas trop, c''est probablement juste moi qui est trop fort.'
+  - "Red: Allez, \xE0 plus minable !"
+  rivalMomBeforeLab:
+  - "M\xE8re de Red : Salut Red ! Tu cherche Blue ? Il est d\xE9j\xE0 parti au laboratoire
+    du professeur !"
+  - "M\xE8re de Red : Si tu te d\xE9p\xEAche, tu peux peut-\xEAtre encore le rattraper."
+  rivalMomAfterLab:
+  - "M\xE8re de Red : Salut Red ! Tu cherche Blue ? Il a d\xE9j\xE0 quitt\xE9 le
+    village."
+  - "M\xE8re de Red : Il est toujours tr\xE8s press\xE9 mais prend ton temps, ce
+    n'est pas une course."
+  end:
+  - Une aventure fantastique vous attend dans le monde de pokemon
+  - To be continued

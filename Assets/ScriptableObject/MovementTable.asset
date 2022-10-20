@@ -9,9 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87043c47d996c2b44905d8daf0e32116, type: 3}
-  m_Name: Red
+  m_Script: {fileID: 11500000, guid: 535743697c42bc5439b4cebea10273ce, type: 3}
+  m_Name: MovementTable
   m_EditorClassIdentifier: 
-  pokemon: []
-  location: Salon
-  dialoguesAlreadyHad: 01000000000000000000000000000000
+  Bedroom:
+  - Salon
+  Livingroom:
+  - Chambre
+  - Village
+  Village:
+  - Salon
+  - Route 101
+  - Maison du rival
+  - Laboratoire
+  RivalHouse:
+  - Village
+  Laboratory:
+  - Village

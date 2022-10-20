@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Pokemon : ScriptableObject
 {
-    public string name;
+    public string pokemonName;
     public int health;
     public int attack;
     public int defense;
