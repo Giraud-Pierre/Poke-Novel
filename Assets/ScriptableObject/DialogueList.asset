@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5a81bada5d642469d12518c7a4bd64, type: 3}
+  m_Name: DialogueList
+  m_EditorClassIdentifier: 
+  Mom:
+  - "Bonjour mon ch\xE9ri, il enfin temps pour toi d'aller chercher ton premier pokemon"
+  - Le professeur Pin t'attend dans son laboratoire. Ne le fais pas attendre !
+  RandomAnnoyingDude:
+  - Fais attention ! Le monde est plein de pokemons sauvages!
+  - "Si tu n'a pas de Pokemon pour te d\xE9fendre et que tu te fait attaquer,"
+  - cela pourrait mal tourner pour toi !
+  ProfessorPine:
+  - Bienvenue Red, il est grand temps que tu obtienne ton premier pokemon,
+  - Une grand aventure t'attend ! Choisis un des trois pokemons que voici.
+  RivalBattle:
+  - He bien, il t'en aura fallu du temps, minable!
+  - Maintenant que tu as enfin ton pokemon, voyons-voir lequel de nos deux pokemon
+    est le plus fort !
+  RivalVictory:
+  - Nooon ! C'est impossible ! Comment as-tu pu gagner ?
+  - "Ce n'est que partie remise ! Je vais entra\xEEner mon pokemon d'arrache-pied
+    et en capturer plein d'autre"
+  - On verra bien qui de nous deux est le plus fort, minable !
+  RivalDefeat:
+  - Pokemon maigrichon pour un dresseur de pacotille, vous allez bien ensemble.
+  - Ne t'en veux pas trop, c'est probablement juste moi qui est trop fort.
+  - "Allez, \xE0 plus minable !"
+  RivalMomBeforeLab:
+  - "Salut Red ! Tu cherche Blue ? Il est d\xE9j\xE0 parti au laboratoire du professeur
+    !"
+  - "Si tu te d\xE9p\xEAche, tu peux peut-\xEAtre encore le rattraper."
+  RivalMomAfterLab:
+  - "Salut Red ! Tu cherche Blue ? Il a d\xE9j\xE0 quitt\xE9 le village."
+  - "Il est toujours tr\xE8s press\xE9 mais prend ton temps, ce n'est pas une course."
+  End:
+  - Une aventure fantastique vous attend dans le monde de pokemon
+  - To be continued

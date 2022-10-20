@@ -38,12 +38,17 @@ public class Dialogues : ScriptableObject
         "Ne t'en veux pas trop, c'est probablement juste moi qui est trop fort.",
         "Allez, à plus minable !"
     };
-    public List<string> RivalMom = new List<string>
+    public List<string> RivalMomBeforeLab = new List<string>
     {
-        "Salut Red ! Tu cherche Blue ? Il est déjà parti !",
+        "Salut Red ! Tu cherche Blue ? Il est déjà parti au laboratoire du professeur !",
         "Si tu te dépêche, tu peux peut-être encore le rattraper."
     };
-    public List<string> end = new List<string>
+    public List<string> RivalMomAfterLab = new List<string>
+    {
+        "Salut Red ! Tu cherche Blue ? Il a déjà quitté le village.",
+        "Il est toujours très pressé mais prend ton temps, ce n'est pas une course."
+    };
+    public List<string> End = new List<string>
     {
         "Une aventure fantastique vous attend dans le monde de pokemon",
         "To be continued"
