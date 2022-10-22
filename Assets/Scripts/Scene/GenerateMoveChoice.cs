@@ -13,9 +13,7 @@ public class GenerateMoveChoice : MonoBehaviour
     
     private void Start()
     {
-        player = GameObject.Find("Canvas").GetComponent<PlayerGenerator>().red;
-
-        Debug.Log(GameObject.Find("Canvas").GetComponent<PlayerGenerator>().red);
+        player = GameObject.Find("Canvas").GetComponent<Player>();
 
         switch (player.GetLocation())
         {

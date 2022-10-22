@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Pokemon : MonoBehaviour
 {
-    [SerializeField] Pokedex pokedex;
-    [SerializeField] CapacityList capacityList;
 
     //nom du pokemon en remplaçant la donnée "name" de base hérité du MonoBehaviour (new)
     private new string name; 
@@ -15,10 +13,12 @@ public class Pokemon : MonoBehaviour
     private int attack;
     private int defense;
     private int speed;
-    private List<CapacitySheet> capacities; //liste des attaques du pokemon
+    private List<CapacitySheet> capacities = new List<CapacitySheet>(); //liste des attaques du pokemon
 
-    public Pokemon(int pokemonIndex) //constructeur du pokemon
+    //Crée le pokemon à partir de son numéro, du pokedex et de la liste des attaques
+    public void SetPokemon(int pokemonIndex, Pokedex pokedex, CapacityList capacityList) 
     {
+
         PokemonSheet sheet = pokedex.pokedex[pokemonIndex]; //va chercher la fiche du pokemon
 
         name = sheet.name;

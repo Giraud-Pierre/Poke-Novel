@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,6 +25,7 @@ public class ContinueDialogue : MonoBehaviour
     {
         GameObject canvas = GameObject.Find("Canvas");
 
+        //si le dialogue est fini, que le joueur est dans le laboratoire et que le joueur n'a pas encore choisi le pokemon
         if(dialogue.Count == 0 && laboratory == 1)
         {
             GameObject newChoiceBox = Instantiate(
@@ -34,12 +34,16 @@ public class ContinueDialogue : MonoBehaviour
             );
 
             newChoiceBox.transform.SetParent(canvas.transform, false);
+            Destroy(gameObject.transform.parent.gameObject);
         }
+        //si le dialogue est fini et que le joueur vient de choisir son pokemon
         else if (dialogue.Count == 0 && laboratory == 2)
         {
             //lance le combat
         }
-        else if (dialogue.Count == 0)
+
+        //Si le dialogue est fini et que l'on n'est pas dans les cas précédent
+        else if (dialogue.Count == 0) 
         {
             GameObject newChoiceBox = Instantiate(
                 choiceBox,
@@ -50,7 +54,7 @@ public class ContinueDialogue : MonoBehaviour
 
             Destroy(gameObject.transform.parent.gameObject);
         }
-        else
+        else //si le dialogue n'est pas fini
         {
             gameObject.transform.parent.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = dialogue[0];
             dialogue.RemoveAt(0);
