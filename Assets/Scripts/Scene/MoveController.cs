@@ -8,8 +8,6 @@ public class MoveController : MonoBehaviour
 {
     [SerializeField] private GameObject ChoiceBox = default;
     [SerializeField] private GameObject DialogueBox = default;
-
-    [SerializeField] private Player player = default;
     [SerializeField] private Dialogues Dialogue = default;
 
     [SerializeField] private Sprite BedroomSprite = default;
@@ -74,9 +72,11 @@ public class MoveController : MonoBehaviour
         background = GameObject.Find("Background");
         position = GameObject.Find("Position");
 
+        Player player = canvas.GetComponent<PlayerGenerator>().red;
+
         if (Place != "Route 101")
         {
-            player.location = Place;
+            player.SetLocation(Place);
             position.GetComponent<TextMeshProUGUI>().text = Place;
         }
 
@@ -94,11 +94,11 @@ public class MoveController : MonoBehaviour
             case "Salon":
                 background.GetComponent<Image>().sprite = LivingroomSprite;
 
-                if (player.dialoguesAlreadyHad[0] == 0)
+                if (player.CheckIfDialogueRead(0) == 0)
                 {
                     nextDialogue = new List<string>(Dialogue.mom);
                     ChangeToDialogue(nextDialogue, PlayerSprite, MomSprite);
-                    player.dialoguesAlreadyHad[0] = 1;
+                    player.SetDialogueRead(0);
                 }
                 else
                 {
@@ -119,17 +119,17 @@ public class MoveController : MonoBehaviour
             case "Maison du rival":
                 background.GetComponent<Image>().sprite = RivalHouseSprite;
 
-                if(player.dialoguesAlreadyHad[1] == 0 && player.pokemon.Count == 0)
+                if(player.CheckIfDialogueRead(1) == 0 && player.GetPokemon(0) == null)
                 {
                     nextDialogue = new List<string>(Dialogue.rivalMomBeforeLab);
                     ChangeToDialogue(nextDialogue, PlayerSprite, RivalMomSprite);
-                    player.dialoguesAlreadyHad[1] = 1;
+                    player.SetDialogueRead(1);
                 }
-                else if (player.dialoguesAlreadyHad[2] == 0 && player.pokemon.Count != 0)
+                else if (player.CheckIfDialogueRead(2) == 0 && player.GetPokemon(0) != null)
                 {
                     nextDialogue = new List<string>(Dialogue.rivalMomAfterLab);
                     ChangeToDialogue(nextDialogue, PlayerSprite, RivalMomSprite);
-                    player.dialoguesAlreadyHad[2] = 1;
+                    player.SetDialogueRead(2);
                 }
                 else
                 {
@@ -142,11 +142,11 @@ public class MoveController : MonoBehaviour
             case "Laboratoire":
                 background.GetComponent<Image>().sprite = LaboratorySprite;
 
-                if(player.dialoguesAlreadyHad[3] == 0)
+                if(player.CheckIfDialogueRead(3) == 0)
                 {
                     nextDialogue = new List<string>(Dialogue.professorPine);
                     ChangeToDialogue(nextDialogue, PlayerSprite, ProfessorSprite);
-                    player.dialoguesAlreadyHad[3] = 1;
+                    player.SetDialogueRead(3);
                 }
                 else
                 {
@@ -157,15 +157,15 @@ public class MoveController : MonoBehaviour
 
 
             case "Route 101":
-                if(player.pokemon.Count != 0)
+                if(player.GetPokemon(0) == null)
                 {
                     nextDialogue = new List<string>(Dialogue.randomAnnoyingDude);
-                    ChangeToDialogue(nextDialogue, PlayerSprite, RivalSprite);
+                    ChangeToDialogue(nextDialogue, PlayerSprite, RandomAnnoyingDude);
                 }
                 else
                 {
                     nextDialogue = new List<string>(Dialogue.randomAnnoyingDude);
-                    ChangeToDialogue(nextDialogue, PlayerSprite, RandomAnnoyingDude);
+                    ChangeToDialogue(nextDialogue, PlayerSprite, RivalSprite);
                 }
                 break;
         }

@@ -5,14 +5,19 @@ using TMPro;
 
 public class GenerateMoveChoice : MonoBehaviour
 {
-    [SerializeField] private Player player = default;
     [SerializeField] private MovementTable MovementTable = default;
     [SerializeField] private GameObject buttonPrefab = default;
+
+    private Player player;
     
     
     private void Start()
     {
-        switch (player.location)
+        player = GameObject.Find("Canvas").GetComponent<PlayerGenerator>().red;
+
+        Debug.Log(GameObject.Find("Canvas").GetComponent<PlayerGenerator>().red);
+
+        switch (player.GetLocation())
         {
             case "Chambre":
                 GenerateButton(MovementTable.Bedroom);
