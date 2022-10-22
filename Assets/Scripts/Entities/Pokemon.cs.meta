@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: b5b1fceb2c8b56b4db010d5e0d971814
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pokedex: {fileID: 11400000, guid: 3c1396d473c77f04fb815f3f1d6a6381, type: 2}
+  - capacityList: {fileID: 11400000, guid: cfa1783b0c51af648a9de983ef4286a8, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
