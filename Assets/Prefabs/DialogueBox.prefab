@@ -305,7 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choiceBox: {fileID: 5808835122992693173, guid: 14f2a55272be8f94686f15fb484f7001,
     type: 3}
-  choicePokemonBox: {fileID: 0}
+  choicePokemonBox: {fileID: 3529192565043919765, guid: dc582fd5bb9e66c42a592133537dffd7,
+    type: 3}
 --- !u!1 &5133592933492993556
 GameObject:
   m_ObjectHideFlags: 0
