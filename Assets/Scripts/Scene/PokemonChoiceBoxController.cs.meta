@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 17c030b497cbf784b83fac5047a1aae7
+guid: 1eb96a4eb5da15d47bebe80eb478a167
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - MovementTable: {fileID: 11400000, guid: 9155b41e1f366ed499538cb50c884838, type: 2}
-  - buttonPrefab: {fileID: 1357803730292863147, guid: 3f2a70368d5e3e248991362ba0f45bda,
+  - buttonPrefab: {fileID: 7930866278625124616, guid: d6483136056876f43ac09c4c8c77a1ec,
       type: 3}
+  - pokedex: {fileID: 11400000, guid: 3c1396d473c77f04fb815f3f1d6a6381, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

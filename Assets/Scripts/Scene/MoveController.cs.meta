@@ -3,7 +3,24 @@ guid: cfa552d5bff16464284fd7026b30f608
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ChoiceBox: {fileID: 5808835122992693173, guid: 14f2a55272be8f94686f15fb484f7001,
+      type: 3}
+  - dialogueBox: {fileID: 4341696225392179489, guid: 2b9bdce084bbff843a4d15d52e9fa9fd,
+      type: 3}
+  - dialogues: {fileID: 11400000, guid: 1b509185e4d03634e943088e8b31332a, type: 2}
+  - BedroomSprite: {fileID: 21300000, guid: 14a1b264e350c554ebd9e83ec1f65461, type: 3}
+  - LivingroomSprite: {fileID: 21300000, guid: e90d0009e6f0cf446b4808f896ccd9fb, type: 3}
+  - VillageSprite: {fileID: 21300000, guid: db4d25bd70da5e543af67dcb2382f165, type: 3}
+  - RivalHouseSprite: {fileID: 21300000, guid: 9e29aefc12643fe4cbd7564fee168d7a, type: 3}
+  - LaboratorySprite: {fileID: 21300000, guid: e91859ff7b66d324db67998e69451ee3, type: 3}
+  - PlayerSprite: {fileID: 21300000, guid: 157168514913e1443803384b3c194456, type: 3}
+  - MomSprite: {fileID: 21300000, guid: ebef4b52d1819f846aeefde4a2ccfd49, type: 3}
+  - RivalMomSprite: {fileID: 21300000, guid: 4ebb5bd2d6efcfd459c2a31d83b1a265, type: 3}
+  - ProfessorSprite: {fileID: 21300000, guid: 7109b927c680ce646a3d14234e1a73b1, type: 3}
+  - RivalSprite: {fileID: 21300000, guid: a15000afa6666cf4c9d0c85ff84127e1, type: 3}
+  - RandomAnnoyingDude: {fileID: 21300000, guid: e04299e70f6b36647ad308bb045b4c98,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
