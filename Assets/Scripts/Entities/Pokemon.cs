@@ -143,20 +143,24 @@ public class Pokemon : MonoBehaviour
     }
     public string GetCapacityName(int index)
     {
-        return capacities[index].name;
+        if (index < capacities.Count) { return capacities[index].name; }
+        else { return ""; }
     }
 
     public int GetCapacityType(int index)
     {
-        return capacities[index].type;
+        if (index < capacities.Count) { return capacities[index].type; }
+        else { return -1; }
     }
 
     public int GetCapacityPower(int index)
     {
-        return capacities[index].power;
+        if (index < capacities.Count) { return capacities[index].power; }
+        else { return -1; }
     }
     public int GetCapacityPrecision(int index)
     {
-        return capacities[index].precision;
+        if (index < capacities.Count) { return capacities[index].precision; }
+        else { return -1; }
     }
 }

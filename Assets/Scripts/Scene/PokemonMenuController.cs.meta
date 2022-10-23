@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: e857684d0b78cc74b8612930807f09a0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - noPokemonBox: {fileID: 3612369705405516677, guid: 318075b976c174143ad1b031327a9008,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
