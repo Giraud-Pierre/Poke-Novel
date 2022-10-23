@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    //Fonction qui va gérer les boutons du menu start.
+    //Script qui va gérer les boutons du menu start et du menu choix par défaut.
 
 
     [SerializeField] private GameObject currentMenu = default; //Récupère le menu sur lequel on se trouve.

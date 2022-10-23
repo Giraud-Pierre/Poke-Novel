@@ -6,17 +6,21 @@ using UnityEngine.UI;
 
 public class ShowPokemon : MonoBehaviour
 {
+    //Script qui sera attaché aux boutons du menu Pokemon pour afficher le pokemon correspondant.
+
+
     [SerializeField] private GameObject SelectedPokemonBox = default; //Récupère le prochain menu à afficher.
 
-    private Pokemon pokemon;
-    public void SetPokemon(Pokemon newPokemon)
+    private Pokemon pokemon; //Va recueillir le pokemon à afficher.
+
+    public void SetPokemon(Pokemon newPokemon) //Attribue le pokemon à afficher à la variable pokemon.
     {
         pokemon = newPokemon;
     }
 
-    public void ShowSelectedPokemon()
+    public void ShowSelectedPokemon() //Affiche le pokemon souhaité.
     {
-        GameObject canvas = GameObject.Find("Canvas");
+        GameObject canvas = GameObject.Find("Canvas"); //Récupère le canvas.
 
         //Affiche correctement la boite dupokmeon.
         GameObject newBox = Instantiate(
@@ -47,6 +51,6 @@ public class ShowPokemon : MonoBehaviour
                                                                                stats[3]
                                                                                                 );
 
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject.transform.parent.gameObject); //Détruit la boite de choix du pokemon (boite précédente).
     }
 }

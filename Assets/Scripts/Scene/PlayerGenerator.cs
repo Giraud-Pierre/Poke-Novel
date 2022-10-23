@@ -11,7 +11,7 @@ public class PlayerGenerator : MonoBehaviour
 
     void Start()
     {
-        //Génère le joueur en le fixant sur le canvas, qui est toujours présent du début à la fin.
+        //Génère le joueur en le fixant sur le canvas, qui est toujours présent du début à la fin du jeu.
         red = gameObject.AddComponent<Player>(); 
     }
 }
