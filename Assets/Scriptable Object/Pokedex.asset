@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pokedex
   m_EditorClassIdentifier: 
   pokedex:
-  - {fileID: 11400000, guid: 977e8709436a4a2488e02b60ddaca461, type: 2}
-  - {fileID: 11400000, guid: 9785df6bff000e54ea3db98b6cdf5991, type: 2}
-  - {fileID: 11400000, guid: d059c8df251e96e4385b2d27b6b63793, type: 2}
+  - {fileID: 11400000, guid: 0fb5b4ead177eb44fbf9ec82c5b426fa, type: 2}
+  - {fileID: 11400000, guid: 94c4f880203249448aa0cbda98512995, type: 2}
+  - {fileID: 11400000, guid: 29122df477e558e4a82cd427e85c0adb, type: 2}

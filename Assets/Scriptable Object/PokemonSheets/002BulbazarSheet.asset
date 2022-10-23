@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Bulbizarre
   baseStats: 13000000090000000900000009000000
   baseCapacities: 0200000001000000
+  sprite: {fileID: 21300000, guid: 5554a711856cea34c9951b2b002977a5, type: 3}

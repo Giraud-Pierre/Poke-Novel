@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Capacity List
   m_EditorClassIdentifier: 
   capacityList:
-  - {fileID: 11400000, guid: 36f4c7dc348b4f34a878e086c55bc941, type: 2}
-  - {fileID: 11400000, guid: 69ff1d26dcc89754189ea50a2ab953d4, type: 2}
-  - {fileID: 11400000, guid: 5261f50efdb334844b41efa12d622aec, type: 2}
-  - {fileID: 11400000, guid: 75428144e5922fb40b7ecaffafd2e7c1, type: 2}
+  - {fileID: 11400000, guid: 2467b5c90254e504aa9294ce7d846a34, type: 2}
+  - {fileID: 11400000, guid: 5815d3e635b357041b5c7ce5f2d5d3f4, type: 2}
+  - {fileID: 11400000, guid: 9929aff779b80064c95145010fe0ef21, type: 2}
+  - {fileID: 11400000, guid: f2f1856fe07489b4586d1256d6519e44, type: 2}

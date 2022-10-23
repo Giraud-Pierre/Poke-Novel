@@ -5,41 +5,50 @@ using TMPro;
 
 public class GenerateMoveChoice : MonoBehaviour
 {
-    [SerializeField] private MovementTable MovementTable = default;
-    [SerializeField] private GameObject buttonPrefab = default;
+    /*Script qui sera attaché à la voite de choix des destinations. Il va génèrer
+    correctement les boutons de choix des destinations. */
 
-    private Player player;
+    //Récupère la table indiquant vers quel lieu le joueur peut se déplacer à partir du lieu où il est.
+    [SerializeField] private MovementTable movementTable = default; 
+
+    [SerializeField] private GameObject buttonPrefab = default; //Prefab du bouton destination.
+
+    private Player player; //Récupère le joueur.
     
     
     private void Start()
     {
-        player = GameObject.Find("Canvas").GetComponent<PlayerGenerator>().red;
+        //Récupère le lieu dans lequel se trouve le joueur
+        player = GameObject.Find("Canvas").GetComponent<Player>();
 
-        Debug.Log(GameObject.Find("Canvas").GetComponent<PlayerGenerator>().red);
-
+        //Lance la génération des boutons avec les bonnes destinations en fonction du lieu dans lequel se trouve le joueur.
         switch (player.GetLocation())
         {
             case "Chambre":
-                GenerateButton(MovementTable.Bedroom);
+                GenerateButton(movementTable.Bedroom);
                 break ;
             case "Salon":
-                GenerateButton(MovementTable.Livingroom);
+                GenerateButton(movementTable.Livingroom);
                 break ;
             case "Village":
-                GenerateButton(MovementTable.Village);
+                GenerateButton(movementTable.Village);
                 break;
             case "Maison du rival":
-                GenerateButton(MovementTable.RivalHouse);
+                GenerateButton(movementTable.RivalHouse);
                 break;
             case "Laboratoire":
-                GenerateButton(MovementTable.Laboratory);
+                GenerateButton(movementTable.Laboratory);
                 break;
         }
     }
 
     private void GenerateButton(List<string> mylist)
     {
+        //Genère les boutons avec la liste de destination.
+
+        //Récupère le premier bouton qui est déjà placé sur la boite de destination.
         GameObject currentButton = gameObject.transform.GetChild(0).gameObject;
+        //Lui donne le nom correspondant à la destination et lui dit vers quelle scène il doit renvoyer.
         currentButton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = mylist[0];
         currentButton.GetComponent<MoveController>().SetMove(mylist[0]);
 
@@ -47,14 +56,18 @@ public class GenerateMoveChoice : MonoBehaviour
         {
             for (int i = 1; i < mylist.Count; i++)
             {
+                //Pour tous les boutons après le premier :
                 GameObject nextButton = Instantiate(
                     buttonPrefab,
-                    currentButton.transform
+                    currentButton.transform //Génère le bouton à la position relative par rapport au bouton précédent.
                 );
-                nextButton.transform.SetParent(currentButton.transform, false);
+                nextButton.transform.SetParent(currentButton.transform, false); //Le déclare comme enfant du bouton précédent.
+
+                //Lui donne le nom correspondant à la destination et lui dit vers quelle scène il doit renvoyer.
                 nextButton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = mylist[i];
                 nextButton.GetComponent<MoveController>().SetMove(mylist[i]);
 
+                //Actualise le bouton précédent pour la génération du bouton suivant.
                 currentButton = nextButton;
             }
         }

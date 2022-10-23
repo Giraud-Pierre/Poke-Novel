@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 001Growl
   m_EditorClassIdentifier: 
   name: Rugissement
-  type: 0
+  type: 2
   power: 0
   precision: 100
