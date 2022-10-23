@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pokemon : MonoBehaviour
 {
+    //Classe spéciale pour gérer les pokemons.
+
 
     //nom du pokemon en remplaçant la donnée "name" de base hérité du MonoBehaviour (new)
     private new string name; 
@@ -15,7 +17,15 @@ public class Pokemon : MonoBehaviour
     private int speed;
     private List<CapacitySheet> capacities = new List<CapacitySheet>(); //liste des attaques du pokemon
 
-    //Crée le pokemon à partir de son numéro, du pokedex et de la liste des attaques
+    /*Crée le pokemon à partir de son numéro, du pokedex et de la liste des attaques.
+    
+    Une sorte de pseudo-constructeur que l'on doit appeler après de la génération du pokemon
+    car les classes héritant de MonoBehaviour ne supporte pas bien les constructeurs. 
+
+    Ce script n'étant sur aucun GameObject, il ne peut pas prendre de SerializedField et
+    pokedex et capacityList étant des assets, ils ne peuvent pas être trouvé facilement
+    avec un GameObject.Find par exemple. On les place donc en arguments dans la fonction, car
+    le code qui crée le pokemon, qui lui doit être sur un GameObject, y a facilement accès. */
     public void SetPokemon(int pokemonIndex, Pokedex pokedex, CapacityList capacityList) 
     {
 
@@ -31,7 +41,7 @@ public class Pokemon : MonoBehaviour
 
         health = maxHealth; //on démarre avec tous les points de vies
 
-        //assigne toutes les attaques de bases du pokemon à la fiche correspondante
+        //assigne toutes les attaques de bases du pokemon aux fiches CapacitySheets correspondantes
         foreach (int capacity in sheet.baseCapacities) 
         {
             AddCapacity(capacityList.capacityList[capacity]);
@@ -53,26 +63,36 @@ public class Pokemon : MonoBehaviour
         return level;
     }
 
-    public List<int> GetStats() //Donne les stats du pokemon
+    public List<int> GetStats() //Donne les stats du pokemon.
     {
         return new List<int> { maxHealth,attack,defense,speed};
     }
 
-    public void SetHealt(int newHealth) //permet de changer la vie du pokemon
+    public void SetHealt(int newHealth) //permet de changer la vie du pokemon.
     {
-        //vérifie que la vie que l'on essaye de mettre rentre dans les critère
+        //Vérifie que la vie que l'on essaye de mettre rentre dans les critère.
         if (newHealth <= maxHealth && newHealth >= 0) 
         {
             health = newHealth;
         }
+        //Sinon on la fixe au maximum si on voulait la mettre à un nombre supérieur
+        else if(newHealth > maxHealth)
+        {
+            health = maxHealth;
+        }
+        //ou à 0 si on voulait la fixer à un nombre négatif.
+        else if(newHealth < 0)
+        {
+            health = 0;
+        }
     }
 
-    public int GetHealth() //permet d'obtenir la vie du pokemon
+    public int GetHealth() //Permet d'obtenir la vie du pokemon.
     {
         return health;
     }
 
-    public void AddCapacity(CapacitySheet newCapacity) //Ajoute une capcité
+    public void AddCapacity(CapacitySheet newCapacity) //Ajoute une capacité.
     {
         capacities.Add(newCapacity);
     }
@@ -82,8 +102,8 @@ public class Pokemon : MonoBehaviour
         capacities.RemoveAt(index);
     }
 
-    //Méthodes pour obtenir les caractéristiques des attaques, dans l'ordre:
-    //le nom, le type d'attaque, la puissance de l'attaque et sa précision
+    /*Méthodes pour obtenir les caractéristiques des attaques, dans l'ordre:
+    le nom, le type d'attaque, la puissance de l'attaque et sa précision.*/
     public string GetCapacityName(int index) 
     {
         return capacities[index].name;

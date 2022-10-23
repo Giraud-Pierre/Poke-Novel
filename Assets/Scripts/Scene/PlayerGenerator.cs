@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerGenerator : MonoBehaviour
 {
-    public Player red; //crée le joueur qui sera accessible depuis des programmes extérieurs
+    //Fixé sur le canvas et génère le joueur au lancement du jeu.
 
-    // Start is called before the first frame update
+
+    public Player red; //crée le joueur en public, qui sera donc accessible par les autres scripts.
+
     void Start()
     {
-        red = gameObject.AddComponent<Player>();
+        //Génère le joueur en le fixant sur le canvas, qui est toujours présent du début à la fin.
+        red = gameObject.AddComponent<Player>(); 
     }
 }

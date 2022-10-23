@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 003TailWhip
   m_EditorClassIdentifier: 
   name: Mimi-Queue
-  type: 0
+  type: 2
   power: 1
   precision: 100
