@@ -9,7 +9,6 @@ public class PokemonChoiceButtonController : MonoBehaviour
     Donne le pokemon correspondant au joueur, lance le dialogue contre le rival
     et détruit la boite de choix du premier pokemon.*/
 
-    [SerializeField] private GameObject choosePokemonBox = default; //Prefab de la boite qu'il faudra détruire à la fin.
     [SerializeField] private GameObject dialogueBox = default; //Prefab de la prochaine boite à afficher.
 
     [SerializeField] private Dialogues dialogues = default; //Liste des dialogues.
@@ -64,6 +63,6 @@ public class PokemonChoiceButtonController : MonoBehaviour
         canvas.GetComponent<Player>().AddPokemon(starter);
 
         //Détruit la boite de choix du premier pokemon.
-        Destroy(choosePokemonBox);
+        Destroy(GameObject.Find("ChoicePokemonBox(Clone)"));
     }
 }

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     //Classe spéciale pour le joueur et ses différentes composantes. 
 
 
-    private List<Pokemon> pokemons = new List<Pokemon>(); //Liste des pokemons du joueurs.
+    public List<Pokemon> pokemons = new List<Pokemon>(); //Liste des pokemons du joueurs.
     private string location = "Chambre"; //Position actuelle du joueur.
 
     /*Liste tous les dialogues déjà déclenchés(

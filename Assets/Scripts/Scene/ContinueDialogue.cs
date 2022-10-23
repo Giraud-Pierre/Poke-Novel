@@ -51,6 +51,7 @@ public class ContinueDialogue : MonoBehaviour
         //si le dialogue est fini et que le joueur vient de choisir son pokemon
         else if (dialogue.Count == 0 && laboratory == 2)
         {
+            Debug.Log(GameObject.Find("Canvas").GetComponent<Player>().GetPokemon(0).GetName()); //TEMP Comment accèder au pokemon. TEMP
             //lance le combat
         }
 
