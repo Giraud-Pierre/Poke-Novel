@@ -9,10 +9,11 @@ public class Pokemon : MonoBehaviour
 
     //nom du pokemon en remplaçant la donnée "name" de base hérité du MonoBehaviour (new)
     private new string name; 
-    private int level;    //niveau du pokemon
+    private int level;    //Niveau du pokemon.
+    private int index;    //Indice du pokemon dans le pokemon.
 
-    private int health; //vie du pokemon à l'instant t
-    private int maxHealth; //vie maximale du pokemon
+    private int health; //Vie du pokemon à l'instant t.
+    private int maxHealth; //Vie maximale du pokemon.
 
     //statistiques du pokemon.
     private int attack;
@@ -20,7 +21,7 @@ public class Pokemon : MonoBehaviour
     private int speed;
     List<float> modifiers = new List<float>(); //Modificateur temporaire qui seront modifé pendant un combat.
 
-    private List<CapacitySheet> capacities = new List<CapacitySheet>(); //liste des attaques du pokemon
+    private List<CapacitySheet> capacities = new List<CapacitySheet>(); //liste des attaques du pokemon.
 
     /*Crée le pokemon à partir de son numéro, du pokedex et de la liste des attaques.
     
@@ -36,6 +37,7 @@ public class Pokemon : MonoBehaviour
 
         PokemonSheet sheet = pokedex.pokedex[pokemonIndex]; //va chercher la fiche du pokemon
 
+        index = pokemonIndex;   //Remplit les valeurs de base.
         name = sheet.name;
         maxHealth = sheet.baseStats[0];
         attack = sheet.baseStats[1];
@@ -53,6 +55,10 @@ public class Pokemon : MonoBehaviour
         }
     }
 
+    public int GetIndex() //Renvoi l'indice du pokemon dans le pokedex.
+    {
+        return index;
+    }
     public void Rename(string newName) //renommer le pokemon
     {
         name = newName;
