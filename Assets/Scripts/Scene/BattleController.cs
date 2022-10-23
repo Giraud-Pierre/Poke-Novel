@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class BattleController : MonoBehaviour
@@ -14,11 +15,13 @@ public class BattleController : MonoBehaviour
     [SerializeField] private Dialogues dialogues = default; //Liste de tous les dialogues du jeu.
     [SerializeField] private Sprite playerSprite = default;
     [SerializeField] private Sprite rivalSprite = default;
+    [SerializeField] private Pokedex pokedex = default;
+    [SerializeField] private CapacityList capacityList = default;
 
     private Pokemon playerPokemon;
     private Pokemon opponentPokemon;
 
-    private void Awake()
+    public void StartBattle()
     {
         playerPokemon = gameObject.GetComponent<Player>().GetPokemon(0);
 
@@ -27,20 +30,26 @@ public class BattleController : MonoBehaviour
         {
             opponentPokemon = InstantiateOpponentPokemon();
             Menu();
-        }
 
-        playerPokemon.InitializeModifiers();
-        opponentPokemon.InitializeModifiers();
+            playerPokemon.InitializeModifiers();
+            opponentPokemon.InitializeModifiers();
+
+            Menu();
+        }
     }
 
     public void Menu()
     {
-        ChangeUI(battleMenuBox);
+        GameObject dialogueBox = ChangeUI(battleMenuBox);
+        dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
+        dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
     }
 
     public void ShowAttack()
     {
-        ChangeUI(battleAttackBox);
+        GameObject dialogueBox = ChangeUI(battleAttackBox);
+        dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
+        dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
     }
 
     public void UseAttack(int index)
@@ -49,13 +58,17 @@ public class BattleController : MonoBehaviour
         if (precision < Mathf.RoundToInt(Random.value * 100))
         {
             GameObject dialogueBox = ChangeUI(fleeBox);
+            dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
+            dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
             dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = string.Format("{0} rate son attaque", playerPokemon.GetName());
         }
         else
         {
             GameObject dialogueBox = ChangeUI(fleeBox);
+            dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
+            dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
 
-            String message = DoCapacity(playerPokemon, opponentPokemon, index);
+            string message = DoCapacity(playerPokemon, opponentPokemon, index);
 
             dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = message;
 
@@ -63,7 +76,7 @@ public class BattleController : MonoBehaviour
             {
                 index = Mathf.RoundToInt(Random.Range(0, opponentPokemon.GetNumberCapacities() - 1));
 
-                int precision = opponentPokemon.GetCapacityPrecision(index);
+                precision = opponentPokemon.GetCapacityPrecision(index);
                 if (precision < Mathf.RoundToInt(Random.value * 100))
                 {
                     dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = string.Format("{0} rate son attaque", opponentPokemon.GetName());
@@ -103,6 +116,8 @@ public class BattleController : MonoBehaviour
     public void Flee()
     {
         GameObject dialogueBox = ChangeUI(fleeBox);
+        dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
+        dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
         dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = "Vous ne pouvez pas fuir d'un combat contre un dresseur !";
     }
 
@@ -110,8 +125,12 @@ public class BattleController : MonoBehaviour
     {
         Pokemon starter = gameObject.AddComponent<Pokemon>();
 
+        int pokemonIndex = playerPokemon.GetIndex() + 1;
+        if (pokemonIndex == 3) pokemonIndex = 0;
 
         starter.SetPokemon(pokemonIndex, pokedex, capacityList);
+
+        return starter;
     }
 
     private GameObject ChangeUI(GameObject nextMenu)
@@ -182,7 +201,7 @@ public class BattleController : MonoBehaviour
             int power = initiator.GetCapacityPower(indexCapacity);
             if(power < 10)
             {
-                initiator.SetModyfier(initiator.GetModifiers()[power] + 0.25f * initiator.GetModifiers()[power], power);
+                initiator.SetModifier(initiator.GetModifiers()[power] + 0.25f * initiator.GetModifiers()[power], power);
 
                 return string.Format("{0} lance {1}. \n{2} de {3} augmente",
                                     initiator.GetName(),
@@ -194,8 +213,8 @@ public class BattleController : MonoBehaviour
             else
             {
                 power = -10;
-                initiator.SetModyfier(initiator.GetModifiers()[power] + 0.50f * initiator.GetModifiers()[power], power);
-                initiator.SetModyfier(initiator.GetModifiers()[power] + 0.25f * initiator.GetModifiers()[power], power);
+                initiator.SetModifier(initiator.GetModifiers()[power] + 0.50f * initiator.GetModifiers()[power], power);
+                initiator.SetModifier(initiator.GetModifiers()[power] + 0.25f * initiator.GetModifiers()[power], power);
 
                 return string.Format("{0} lance {1}. \n{2} de {3} augmente beaucoup",
                                     initiator.GetName(),
@@ -210,7 +229,7 @@ public class BattleController : MonoBehaviour
             int power = initiator.GetCapacityPower(indexCapacity);
             if (power < 10)
             {
-                target.SetModyfier(target.GetModifiers()[power] - 0.15f * target.GetModifiers()[power], power);
+                target.SetModifier(target.GetModifiers()[power] - 0.15f * target.GetModifiers()[power], power);
 
                 return string.Format("{0} lance {1}. \n{2} de {3} diminue",
                                     initiator.GetName(),
@@ -222,7 +241,7 @@ public class BattleController : MonoBehaviour
             else
             {
                 power = -10;
-                target.SetModyfier(target.GetModifiers()[power] - 0.30f * target.GetModifiers()[power], power);
+                target.SetModifier(target.GetModifiers()[power] - 0.30f * target.GetModifiers()[power], power);
 
                 return string.Format("{0} lance {1}. \n{2} de {3} diminue beaucoup",
                                     initiator.GetName(),
