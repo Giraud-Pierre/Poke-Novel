@@ -12,9 +12,9 @@ public class Player : MonoBehaviour
 
     /*Liste tous les dialogues déjà déclenchés(
             .. dans l'ordre, avec la maman du joueur, avec la maman du rival avant le lab, 
-                maman du rival après le lab et avec le professeur;
+                maman du rival après le lab, avec le professeur et le dialogue final "end";
             .. 0 pour non et 1 pour oui). */
-    private List<int> dialoguesAlreadyHad = new List<int> { 0, 0, 0, 0, };
+    private List<int> dialoguesAlreadyHad = new List<int> { 0, 0, 0, 0, 0};
 
     public void SetLocation(string newLocation) //Change la position du joueur.
     {
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     
     public Pokemon GetPokemon(int index) //Donne un pokemon du joueur.
     {
-        if (pokemons.Count != 0) //vérifie que le joueur a au moins un pokemon.
+        if (index < pokemons.Count) //vérifie que l'on demande un pokemon qui existe.
         {
             return pokemons[index];
         }

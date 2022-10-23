@@ -23,30 +23,30 @@ public class Dialogues : ScriptableObject
     };
     public List<string> rivalBattle = new List<string>
     {
-        "Red : He bien, il t'en aura fallu du temps, minable!",
-        "Red : Maintenant que tu as enfin ton pokemon, voyons-voir lequel de nos deux pokemon est le plus fort !"
+        "Blue : He bien, il t'en aura fallu du temps, minable!",
+        "Blue : Maintenant que tu as enfin ton pokemon, voyons-voir lequel de nos deux pokemon est le plus fort !"
     };
     public List<string> rivalVictory = new List<string>
     {
-        "Red : Nooon ! C'est impossible ! Comment as-tu pu gagner ?",
-        "Red : Ce n'est que partie remise ! Je vais entraîner mon pokemon d'arrache-pied et en capturer plein d'autre",
-        "Red : On verra bien qui de nous deux est le plus fort, minable !"
+        "Blue : Nooon ! C'est impossible ! Comment as-tu pu gagner ?",
+        "Blue : Ce n'est que partie remise ! Je vais entraîner mon pokemon d'arrache-pied et en capturer plein d'autre",
+        "Blue : On verra bien qui de nous deux est le plus fort, minable !"
     };
     public List<string> rivalDefeat = new List<string>
     {
-        "Red : Pokemon maigrichon pour un dresseur de pacotille, vous allez bien ensemble.",
-        "Red : Ne t'en veux pas trop, c'est probablement juste moi qui est trop fort.",
-        "Red: Allez, à plus minable !"
+        "Blue : Pokemon maigrichon pour un dresseur de pacotille, vous allez bien ensemble.",
+        "Blue : Ne t'en veux pas trop, c'est probablement juste moi qui est trop fort.",
+        "Blue: Allez, à plus minable !"
     };
     public List<string> rivalMomBeforeLab = new List<string>
     {
-        "Mère de Red : Salut Red ! Tu cherche Blue ? Il est déjà parti au laboratoire du professeur !",
-        "Mère de Red : Si tu te dépêche, tu peux peut-être encore le rattraper."
+        "Mère de Blue : Salut Red ! Tu cherche Blue ? Il est déjà parti au laboratoire du professeur !",
+        "Mère de Blue : Si tu te dépêche, tu peux peut-être encore le rattraper."
     };
     public List<string> rivalMomAfterLab = new List<string>
     {
-        "Mère de Red : Salut Red ! Tu cherche Blue ? Il a déjà quitté le village.",
-        "Mère de Red : Il est toujours très pressé mais prend ton temps, ce n'est pas une course."
+        "Mère de Blue : Salut Red ! Tu cherche Blue ? Il a déjà quitté le village.",
+        "Mère de Blue : Il est toujours très pressé mais prend ton temps, ce n'est pas une course."
     };
     public List<string> end = new List<string>
     {

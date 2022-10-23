@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 4ea6b36b10277114a9ac2d26c393cfa1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - battleAttackBox: {fileID: 4341696225392179489, guid: f4e401f9f6323e341bce3ab0b9227e81,
+      type: 3}
+  - battleBagBox: {fileID: 374267018696669133, guid: 1b695178aa8cc9f499dc60c7cef27dcf,
+      type: 3}
+  - battleMenuBox: {fileID: 4341696225392179489, guid: a03ddadd6b6098545a4dfe67fab92f2d,
+      type: 3}
+  - battlePokemonBox: {fileID: 5245648113914265491, guid: a685fc27f18155e4e9f3d86a083c7e9c,
+      type: 3}
+  - fleeBox: {fileID: 4341696225392179489, guid: d0737ef68da2dae479a5a1eb2dbaa008,
+      type: 3}
+  - dialogueBoxPrefab: {fileID: 4341696225392179489, guid: 2b9bdce084bbff843a4d15d52e9fa9fd,
+      type: 3}
+  - dialogues: {fileID: 11400000, guid: 1b509185e4d03634e943088e8b31332a, type: 2}
+  - playerSprite: {fileID: 21300000, guid: 157168514913e1443803384b3c194456, type: 3}
+  - rivalSprite: {fileID: 21300000, guid: a15000afa6666cf4c9d0c85ff84127e1, type: 3}
+  - pokedex: {fileID: 11400000, guid: 3c1396d473c77f04fb815f3f1d6a6381, type: 2}
+  - capacityList: {fileID: 11400000, guid: cfa1783b0c51af648a9de983ef4286a8, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

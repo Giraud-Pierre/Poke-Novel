@@ -6,8 +6,11 @@ MonoImporter:
   defaultReferences:
   - choiceBox: {fileID: 5808835122992693173, guid: 14f2a55272be8f94686f15fb484f7001,
       type: 3}
+  - endBox: {fileID: 3526680696513552406, guid: 558ee338007fa5043b2454303ab4f237,
+      type: 3}
   - choicePokemonBox: {fileID: 3529192565043919765, guid: dc582fd5bb9e66c42a592133537dffd7,
       type: 3}
+  - endSprite: {fileID: 21300000, guid: bc1465b171a61f04c9f0db592f399cf6, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

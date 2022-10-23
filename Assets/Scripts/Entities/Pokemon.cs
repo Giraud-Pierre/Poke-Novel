@@ -4,47 +4,51 @@ using UnityEngine;
 
 public class Pokemon : MonoBehaviour
 {
-    //Classe spéciale pour gérer les pokemons.
+    //Classe spï¿½ciale pour gï¿½rer les pokemons.
 
 
-    //nom du pokemon en remplaçant la donnée "name" de base hérité du MonoBehaviour (new)
-    private new string name; 
-    private int level;    //niveau du pokemon
+    //nom du pokemon en remplaï¿½ant la donnï¿½e "name" de base hï¿½ritï¿½ du MonoBehaviour (new)
+    private new string name;
+    private int level;    //Niveau du pokemon.
+    private int index;    //Indice du pokemon dans le pokemon.
+    private Sprite pokemonSprite; //Sprite du pokemon.
 
-    private int health; //vie du pokemon à l'instant t
+    private int health; //vie du pokemon ï¿½ l'instant t
     private int maxHealth; //vie maximale du pokemon
 
     //statistiques du pokemon.
     private int attack;
     private int defense;
     private int speed;
-    List<float> modifiers = new List<float>(); //Modificateur temporaire qui seront modifé pendant un combat.
+    List<float> modifiers = new List<float>(); //Modificateur temporaire qui seront modifï¿½ pendant un combat.
 
-    private List<CapacitySheet> capacities = new List<CapacitySheet>(); //liste des attaques du pokemon
+    private List<CapacitySheet> capacities = new List<CapacitySheet>(); //liste des attaques du pokemon.
 
-    /*Crée le pokemon à partir de son numéro, du pokedex et de la liste des attaques.
+    /*Crï¿½e le pokemon ï¿½ partir de son numï¿½ro, du pokedex et de la liste des attaques.
     
-    Une sorte de pseudo-constructeur que l'on doit appeler après de la génération du pokemon
-    car les classes héritant de MonoBehaviour ne supporte pas bien les constructeurs. 
+    Une sorte de pseudo-constructeur que l'on doit appeler aprï¿½s de la gï¿½nï¿½ration du pokemon
+    car les classes hï¿½ritant de MonoBehaviour ne supporte pas bien les constructeurs. 
 
-    Ce script n'étant sur aucun GameObject, il ne peut pas prendre de SerializedField et
-    pokedex et capacityList étant des assets, ils ne peuvent pas être trouvé facilement
+    Ce script n'ï¿½tant sur aucun GameObject, il ne peut pas prendre de SerializedField et
+    pokedex et capacityList ï¿½tant des assets, ils ne peuvent pas ï¿½tre trouvï¿½ facilement
     avec un GameObject.Find par exemple. On les place donc en arguments dans la fonction, car
-    le code qui crée le pokemon, qui lui doit être sur un GameObject, y a facilement accès. */
+    le code qui crï¿½e le pokemon, qui lui doit ï¿½tre sur un GameObject, y a facilement accï¿½s. */
     public void SetPokemon(int pokemonIndex, Pokedex pokedex, CapacityList capacityList) 
     {
 
         PokemonSheet sheet = pokedex.pokedex[pokemonIndex]; //va chercher la fiche du pokemon
 
+        index = pokemonIndex;   //Remplit les valeurs de base.
+        pokemonSprite = sheet.sprite;
         name = sheet.name;
         maxHealth = sheet.baseStats[0];
         attack = sheet.baseStats[1];
         defense = sheet.baseStats[2];
         speed = sheet.baseStats[3];
 
-        level = 5; //Les pokemon sont initialisé au niveau 5 pour l'instant, pas d'expérience ou de monté en niveau possible
+        level = 5; //Les pokemon sont initialisï¿½ au niveau 5 pour l'instant, pas d'expï¿½rience ou de montï¿½ en niveau possible
 
-        health = maxHealth; //on démarre avec tous les points de vies
+        health = maxHealth; //on dï¿½marre avec tous les points de vies
 
         //assigne toutes les attaques de bases du pokemon aux fiches CapacitySheets correspondantes
         foreach (int capacity in sheet.baseCapacities) 
@@ -53,6 +57,10 @@ public class Pokemon : MonoBehaviour
         }
     }
 
+    public int GetIndex() //Renvoi l'indice du pokemon dans le pokedex.
+    {
+        return index;
+    }
     public void Rename(string newName) //renommer le pokemon
     {
         name = newName;
@@ -61,6 +69,11 @@ public class Pokemon : MonoBehaviour
     public string GetName() //Donne le nom du pokemon
     {
         return name;
+    }
+
+    public Sprite GetSprite() //Donne le sprite du pokemon.
+    {
+        return pokemonSprite;
     }
 
     public int GetLevel() //Donne le niveau du pokemon
@@ -73,7 +86,7 @@ public class Pokemon : MonoBehaviour
         return new List<int> { maxHealth,attack,defense,speed};
     }
 
-    public void InitializeModifiers() //Initialise les modificateurs au début du combat.
+    public void InitializeModifiers() //Initialise les modificateurs au dï¿½but du combat.
     {
         modifiers = new List<float> { 1, 1, 1 };
     }
@@ -83,24 +96,24 @@ public class Pokemon : MonoBehaviour
         modifiers[statsIndex] = newModifier;
     }
 
-    public List<float> GetModiiers() //Récupère tous les modificateurs
+    public List<float> GetModifiers() //Rï¿½cupï¿½re tous les modificateurs
     {
         return modifiers;
     }
 
     public void SetHealth(int newHealth) //permet de changer la vie du pokemon.
     {
-        //Vérifie que la vie que l'on essaye de mettre rentre dans les critère.
+        //Vï¿½rifie que la vie que l'on essaye de mettre rentre dans les critï¿½re.
         if (newHealth <= maxHealth && newHealth >= 0) 
         {
             health = newHealth;
         }
-        //Sinon on la fixe au maximum si on voulait la mettre à un nombre supérieur
+        //Sinon on la fixe au maximum si on voulait la mettre ï¿½ un nombre supï¿½rieur
         else if(newHealth > maxHealth)
         {
             health = maxHealth;
         }
-        //ou à 0 si on voulait la fixer à un nombre négatif.
+        //ou ï¿½ 0 si on voulait la fixer ï¿½ un nombre nï¿½gatif.
         else if(newHealth < 0)
         {
             health = 0;
@@ -112,38 +125,42 @@ public class Pokemon : MonoBehaviour
         return health;
     }
 
-    public void AddCapacity(CapacitySheet newCapacity) //Ajoute une capacité.
+    public void AddCapacity(CapacitySheet newCapacity) //Ajoute une capacitï¿½.
     {
         capacities.Add(newCapacity);
     }
 
-    public void DeleteCapacity(int index) //enlève une capacité du pokemon
+    public void DeleteCapacity(int index) //enlï¿½ve une capacitï¿½ du pokemon
     {
         capacities.RemoveAt(index);
     }
 
-    /*Méthodes pour obtenir les caractéristiques des attaques, dans l'ordre:
-    le nom, le type d'attaque, la puissance de l'attaque et sa précision.*/
+    /*Mï¿½thodes pour obtenir les caractï¿½ristiques des attaques, dans l'ordre:
+    le nom, le type d'attaque, la puissance de l'attaque et sa prï¿½cision.*/
     public int GetNumberCapacities()
     {
         return capacities.Count;
     }
-    public string GetCapacityName(int index) 
+    public string GetCapacityName(int index)
     {
-        return capacities[index].name;
+        if (index < capacities.Count) { return capacities[index].name; }
+        else { return ""; }
     }
 
     public int GetCapacityType(int index)
     {
-        return capacities[index].type;
+        if (index < capacities.Count) { return capacities[index].type; }
+        else { return -1; }
     }
 
     public int GetCapacityPower(int index)
     {
-        return capacities[index].power;
+        if (index < capacities.Count) { return capacities[index].power; }
+        else { return -1; }
     }
     public int GetCapacityPrecision(int index)
     {
-        return capacities[index].precision;
+        if (index < capacities.Count) { return capacities[index].precision; }
+        else { return -1; }
     }
 }
