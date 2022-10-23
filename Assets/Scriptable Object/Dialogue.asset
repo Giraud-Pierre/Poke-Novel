@@ -28,26 +28,26 @@ MonoBehaviour:
   - 'Professeur Pin : Une grand aventure t''attend ! Choisis un des trois pokemons
     que voici.'
   rivalBattle:
-  - 'Red : He bien, il t''en aura fallu du temps, minable!'
-  - 'Red : Maintenant que tu as enfin ton pokemon, voyons-voir lequel de nos deux
+  - 'Blue: He bien, il t''en aura fallu du temps, minable!'
+  - 'Vlue : Maintenant que tu as enfin ton pokemon, voyons-voir lequel de nos deux
     pokemon est le plus fort !'
   rivalVictory:
-  - 'Red : Nooon ! C''est impossible ! Comment as-tu pu gagner ?'
-  - "Red : Ce n'est que partie remise ! Je vais entra\xEEner mon pokemon d'arrache-pied
+  - 'Blue : Nooon ! C''est impossible ! Comment as-tu pu gagner ?'
+  - "Blue : Ce n'est que partie remise ! Je vais entra\xEEner mon pokemon d'arrache-pied
     et en capturer plein d'autre"
-  - 'Red : On verra bien qui de nous deux est le plus fort, minable !'
+  - 'Blue : On verra bien qui de nous deux est le plus fort, minable !'
   rivalDefeat:
-  - 'Red : Pokemon maigrichon pour un dresseur de pacotille, vous allez bien ensemble.'
-  - 'Red : Ne t''en veux pas trop, c''est probablement juste moi qui est trop fort.'
-  - "Red: Allez, \xE0 plus minable !"
+  - 'Blue : Pokemon maigrichon pour un dresseur de pacotille, vous allez bien ensemble.'
+  - 'Blue : Ne t''en veux pas trop, c''est probablement juste moi qui est trop fort.'
+  - "Blue: Allez, \xE0 plus minable !"
   rivalMomBeforeLab:
-  - "M\xE8re de Red : Salut Red ! Tu cherche Blue ? Il est d\xE9j\xE0 parti au laboratoire
+  - "M\xE8re de Blue : Salut Red ! Tu cherche Blue ? Il est d\xE9j\xE0 parti au laboratoire
     du professeur !"
-  - "M\xE8re de Red : Si tu te d\xE9p\xEAche, tu peux peut-\xEAtre encore le rattraper."
+  - "M\xE8re de Blue : Si tu te d\xE9p\xEAche, tu peux peut-\xEAtre encore le rattraper."
   rivalMomAfterLab:
-  - "M\xE8re de Red : Salut Red ! Tu cherche Blue ? Il a d\xE9j\xE0 quitt\xE9 le
+  - "M\xE8re de Blue : Salut Red ! Tu cherche Blue ? Il a d\xE9j\xE0 quitt\xE9 le
     village."
-  - "M\xE8re de Red : Il est toujours tr\xE8s press\xE9 mais prend ton temps, ce
+  - "M\xE8re de Blue : Il est toujours tr\xE8s press\xE9 mais prend ton temps, ce
     n'est pas une course."
   end:
   - Une aventure fantastique vous attend dans le monde de pokemon
