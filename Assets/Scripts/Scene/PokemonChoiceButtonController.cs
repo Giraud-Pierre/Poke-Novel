@@ -27,9 +27,14 @@ public class PokemonChoiceButtonController : MonoBehaviour
         pokemonIndex = newPokemonIndex;
     }
     
-    //Lance le dialogue avec le rival qui va suivre après le choix du pokemon.
     private void ChangeToDialogue(List<string> dialogueText, Sprite char1, Sprite char2, int laboratory)
     {
+        /*Lance le dialogue avec le rival qui va suivre après le choix du pokemon à partir
+         des dialogues restant à afficher, des sprites des personnages du dialogues et du stade
+        vis-à-vis du laboratoire (ici 2 = le personnage est dans le laboratoire
+        et a choisi son pokemon). */
+
+
         //Instantie la boite de dialogue comme enfant du canvas.
         GameObject newDialogue = Instantiate(
             dialogueBox,

@@ -46,8 +46,10 @@ public class GenerateMoveChoice : MonoBehaviour
     {
         //Genère les boutons avec la liste de destination.
 
+
         //Récupère le premier bouton qui est déjà placé sur la boite de destination.
         GameObject currentButton = gameObject.transform.GetChild(0).gameObject;
+
         //Lui donne le nom correspondant à la destination et lui dit vers quelle scène il doit renvoyer.
         currentButton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = mylist[0];
         currentButton.GetComponent<MoveController>().SetMove(mylist[0]);

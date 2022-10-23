@@ -48,7 +48,7 @@ public class MoveController : MonoBehaviour
     {
         /*Affiche le dialogue si la scene déclenche un dialogue, avec le bon dialogue, les sprites des 
         deux personnages correspondant et indique si on se trouve dans le laboratoire et dans quelle étape
-        on se trouve :
+        on se trouve vis-à-vis du laboratoire:
             - 0 = le joueur n'est pas dans le laboratoire;
             - 1 = le joueur est dans le laboratoire et n'a pas encore choisi son premier pokemon;
             - 2 = le joueur est dans le laboratoire et a choisi son premier pokemon (lance le dialogue RivalBattle);
@@ -111,12 +111,15 @@ public class MoveController : MonoBehaviour
             position.GetComponent<TextMeshProUGUI>().text = Place;
         }
 
-        /*Switch qui décide des différentes possibilités en fonction de la scène vers lequel le bouton renvoie.
-        Dans chaque cas, change l'image en fond (sauf dans le cas de la route 101 car il n'y en a pas) puis, 
-        dans les cas où un dialogue se passe, vérifie si le dialogue a déjà été déclenché et enfin affiche
-        soit le dialogue à afficher, soit le menu choix par défaut. */
+        
         switch (Place)
         {
+
+            /*Switch qui décide des différentes possibilités en fonction de la scène vers lequel le bouton renvoie.
+            Dans chaque cas, change l'image en fond (sauf dans le cas de la route 101 car il n'y en a pas) puis, 
+            dans les cas où un dialogue se passe, vérifie si le dialogue a déjà été déclenché, le déclare comme 
+            déclenché si ce n'était pas le cas et l'affiche, sinon affiche le menu choix par défaut. */
+
             case "Chambre":
                 background.GetComponent<Image>().sprite = bedroomSprite;
 
@@ -194,15 +197,17 @@ public class MoveController : MonoBehaviour
 
             case "Route 101":
                 /*On vérifie ici aussi si le dresseur a des pokemon car s'il en a, le jeu se termine, 
-                sinon le jeu le renvoie vers le laboratoire. */
-                if(player.GetPokemon(0) == null) //On ne vérifie pas si le dialogue a déjà eu lieu, car il peut se déclencher autant de fois que nècessaire.
+                sinon un personnage bien intentionné le renvoie vers le laboratoire. */
+
+                if(player.GetPokemon(0) == null)
+                //On ne vérifie pas si le dialogue a déjà eu lieu, car il peut se déclencher autant de fois que nècessaire.
                 {
                     nextDialogue = new List<string>(dialogues.randomAnnoyingDude);
                     ChangeToDialogue(nextDialogue, playerSprite, randomAnnoyingDude, 0);
                 }
                 else
                 {
-                    player.SetDialogueRead(4);
+                    player.SetDialogueRead(4); //Déclenche la fin du jeu.
                     nextDialogue = new List<string>(dialogues.end);
                     ChangeToDialogue(nextDialogue, playerSprite, rivalSprite, 0);
                 }
