@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Dialogues : ScriptableObject
 {
-    //Tous les dialogues qui peuvent être lancés dans le jeu
+    //Tous les dialogues qui peuvent être lancés dans le jeu.
     public List<string> mom = new List<string>
     {
         "Maman : Bonjour mon chéri, il enfin temps pour toi d'aller chercher ton premier pokemon",
