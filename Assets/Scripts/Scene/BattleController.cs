@@ -23,6 +23,7 @@ public class BattleController : MonoBehaviour
     private Pokemon playerPokemon;
     private Pokemon opponentPokemon;
     private WhoDied whoDied;
+    private List<string> DialogueAfterBattle;
 
 
     public void StartBattle()
@@ -53,10 +54,12 @@ public class BattleController : MonoBehaviour
                 dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
                 break;
             case WhoDied.player :
-                ChangeToDialogue(dialogues.rivalDefeat);
+                DialogueAfterBattle = new List<string>(dialogues.rivalDefeat);
+                ChangeToDialogue(DialogueAfterBattle);
                 break;
             case WhoDied.opponent :
-                ChangeToDialogue(dialogues.rivalVictory);
+                DialogueAfterBattle = new List<string>(dialogues.rivalVictory);
+                ChangeToDialogue(DialogueAfterBattle);
                 break;
         }
     }
@@ -66,12 +69,24 @@ public class BattleController : MonoBehaviour
         GameObject dialogueBox = ChangeUI(battleAttackBox);
         dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
         dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
+
+        int attackIndex = 0;
+        while(playerPokemon.GetCapacityName(attackIndex) != "")
+        {
+            dialogueBox.transform.GetChild(attackIndex + 2).GetChild(0).
+                gameObject.GetComponent<TextMeshProUGUI>().
+                text = playerPokemon.GetCapacityName(attackIndex);
+
+            attackIndex++;
+        }
+        for(;attackIndex < 4; attackIndex++) { Destroy(dialogueBox.transform.GetChild(attackIndex + 2).gameObject); }
     }
 
     public void UseAttack(int index)
     {
         List<string> dialogueText = new List<string>();
         string message = "";
+        Random.InitState((int)System.DateTime.Now.Ticks);
 
         int precision = playerPokemon.GetCapacityPrecision(index);
         if (precision < Mathf.RoundToInt(Random.value * 100))
@@ -87,7 +102,7 @@ public class BattleController : MonoBehaviour
 
         if (opponentPokemon.GetHealth() != 0)
         {
-            index = Mathf.RoundToInt(Random.Range(0, opponentPokemon.GetNumberCapacities() - 1));
+            index = Mathf.RoundToInt(Random.Range(0f, opponentPokemon.GetNumberCapacities() - 1));
 
             precision = opponentPokemon.GetCapacityPrecision(index);
             if (precision < Mathf.RoundToInt(Random.value * 100))

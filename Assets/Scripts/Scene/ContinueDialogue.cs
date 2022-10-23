@@ -1,16 +1,21 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ContinueDialogue : MonoBehaviour
 {
     //Script qui sera attacher au bouton continuer du dialogue et va g�rer son fonctionnement.
 
 
-    [SerializeField] GameObject choiceBox = default ; //R�cup�re la boite de choix pour l'afficher � la fin du dialogue.
+    [SerializeField] GameObject choiceBox = default ; //Récupère la boite de choix pour l'afficher à la fin du dialogue.
+    [SerializeField] GameObject endBox = default ; //Récupère l'image de fin.
 
     //R�cup�re la boite de choix du premier pokemon pour l'afficher apr�s la discussion avec le professeur.
-    [SerializeField] GameObject choicePokemonBox = default ; 
+    [SerializeField] GameObject choicePokemonBox = default ;
+
+
+    [SerializeField] Sprite endSprite = default; //Récupère le sprite pour l'image de fin.
 
     private List<string> dialogue; //R�cup�re les dialogues suivants � afficher.
     private int laboratory; //R�cup�re les diff�rentes situations vis-�-vis du laboratoire (voir fonction ci-dessous).
@@ -54,7 +59,14 @@ public class ContinueDialogue : MonoBehaviour
             //Debug.Log(GameObject.Find("Canvas").GetComponent<Player>().GetPokemon(0).GetName()); //TEMP Comment acc�der au pokemon. TEMP
             GameObject.Find("Canvas").GetComponent<BattleController>().StartBattle();
         }
-
+        //Si le dialogue est fini et que l'on est à la fin du jeu
+        else if(dialogue.Count == 0 && canvas.GetComponent<Player>().CheckIfDialogueRead(4) == 1){
+            GameObject thisIsTheEnd = Instantiate(
+                        endBox,
+                        canvas.transform);
+            thisIsTheEnd.transform.SetParent(canvas.transform, false);
+            thisIsTheEnd.GetComponent<Image>().sprite = endSprite;
+        }
         //Si le dialogue est fini et que l'on n'est pas dans un des cas pr�c�dents
         else if (dialogue.Count == 0)
         {

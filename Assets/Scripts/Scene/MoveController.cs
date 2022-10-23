@@ -202,7 +202,8 @@ public class MoveController : MonoBehaviour
                 }
                 else
                 {
-                    nextDialogue = new List<string>(dialogues.randomAnnoyingDude);
+                    player.SetDialogueRead(4);
+                    nextDialogue = new List<string>(dialogues.end);
                     ChangeToDialogue(nextDialogue, playerSprite, rivalSprite, 0);
                 }
                 break;
