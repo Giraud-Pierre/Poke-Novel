@@ -203,7 +203,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 5988970170565516022}
   - component: {fileID: 2223048166024479771}
   - component: {fileID: 7321401052386201944}
+  - component: {fileID: 3126748902309826267}
   m_Layer: 5
   m_Name: Attack2Button
   m_TagString: Untagged
@@ -602,7 +603,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2223048166024479771}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3126748902309826267}
+        m_TargetAssemblyTypeName: BattleButtonController, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3126748902309826267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574640620335065973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d8aadad7abffc458ff37a3bc9e3584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 6
 --- !u!1 &4341696225392179489
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +859,7 @@ GameObject:
   - component: {fileID: 7439955067771989625}
   - component: {fileID: 1062280421149805239}
   - component: {fileID: 6189721533511183187}
+  - component: {fileID: 536143663843191171}
   m_Layer: 5
   m_Name: Attack1Button
   m_TagString: Untagged
@@ -942,7 +969,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1062280421149805239}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 536143663843191171}
+        m_TargetAssemblyTypeName: BattleButtonController, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &536143663843191171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275813325483401073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d8aadad7abffc458ff37a3bc9e3584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 5
 --- !u!1 &6422791901718107250
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +1007,7 @@ GameObject:
   - component: {fileID: 3875269587763945894}
   - component: {fileID: 2882493248629534205}
   - component: {fileID: 6953724043252882635}
+  - component: {fileID: 7827236018387788163}
   m_Layer: 5
   m_Name: Attack4Button
   m_TagString: Untagged
@@ -1064,7 +1117,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2882493248629534205}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7827236018387788163}
+        m_TargetAssemblyTypeName: BattleButtonController, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7827236018387788163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6422791901718107250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d8aadad7abffc458ff37a3bc9e3584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 8
 --- !u!1 &7305185511886539600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1290,7 @@ GameObject:
   - component: {fileID: 3585492089235090879}
   - component: {fileID: 510386895323014442}
   - component: {fileID: 8758505500747994498}
+  - component: {fileID: 8504230885830167585}
   m_Layer: 5
   m_Name: Attack3Button
   m_TagString: Untagged
@@ -1321,7 +1400,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 510386895323014442}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8504230885830167585}
+        m_TargetAssemblyTypeName: BattleButtonController, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8504230885830167585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315947692049966540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d8aadad7abffc458ff37a3bc9e3584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 7
 --- !u!1 &8025064950368052253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,7 +1494,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

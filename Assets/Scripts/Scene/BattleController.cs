@@ -6,6 +6,8 @@ using TMPro;
 
 public class BattleController : MonoBehaviour
 {
+    enum WhoDied {nobody, player, opponent}
+
     [SerializeField] private GameObject battleAttackBox  = default;
     [SerializeField] private GameObject battleBagBox = default;
     [SerializeField] private GameObject battleMenuBox = default;
@@ -20,16 +22,19 @@ public class BattleController : MonoBehaviour
 
     private Pokemon playerPokemon;
     private Pokemon opponentPokemon;
+    private WhoDied whoDied;
+
 
     public void StartBattle()
     {
+        whoDied = WhoDied.nobody;
+
         playerPokemon = gameObject.GetComponent<Player>().GetPokemon(0);
 
         if (playerPokemon == null) Debug.Log("Tu n’a pas de pokemon");
         else
         {
             opponentPokemon = InstantiateOpponentPokemon();
-            Menu();
 
             playerPokemon.InitializeModifiers();
             opponentPokemon.InitializeModifiers();
@@ -40,9 +45,20 @@ public class BattleController : MonoBehaviour
 
     public void Menu()
     {
-        GameObject dialogueBox = ChangeUI(battleMenuBox);
-        dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
-        dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
+        switch (whoDied)
+        {
+            case WhoDied.nobody :
+                GameObject dialogueBox = ChangeUI(battleMenuBox);
+                dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
+                dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
+                break;
+            case WhoDied.player :
+                ChangeToDialogue(dialogues.rivalDefeat);
+                break;
+            case WhoDied.opponent :
+                ChangeToDialogue(dialogues.rivalVictory);
+                break;
+        }
     }
 
     public void ShowAttack()
@@ -54,53 +70,53 @@ public class BattleController : MonoBehaviour
 
     public void UseAttack(int index)
     {
+        List<string> dialogueText = new List<string>();
+        string message = "";
+
         int precision = playerPokemon.GetCapacityPrecision(index);
         if (precision < Mathf.RoundToInt(Random.value * 100))
         {
-            GameObject dialogueBox = ChangeUI(fleeBox);
-            dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
-            dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
-            dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = string.Format("{0} rate son attaque", playerPokemon.GetName());
+            dialogueText.Add(
+                string.Format("{0} rate son attaque", playerPokemon.GetName())
+            );
         }
-        else
+        else {
+            message = DoCapacity(playerPokemon, opponentPokemon, index);
+            dialogueText.Add(message);
+        }
+
+        if (opponentPokemon.GetHealth() != 0)
         {
-            GameObject dialogueBox = ChangeUI(fleeBox);
-            dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
-            dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
+            index = Mathf.RoundToInt(Random.Range(0, opponentPokemon.GetNumberCapacities() - 1));
 
-            string message = DoCapacity(playerPokemon, opponentPokemon, index);
-
-            dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = message;
-
-            if (opponentPokemon.GetHealth() != 0)
+            precision = opponentPokemon.GetCapacityPrecision(index);
+            if (precision < Mathf.RoundToInt(Random.value * 100))
             {
-                index = Mathf.RoundToInt(Random.Range(0, opponentPokemon.GetNumberCapacities() - 1));
-
-                precision = opponentPokemon.GetCapacityPrecision(index);
-                if (precision < Mathf.RoundToInt(Random.value * 100))
-                {
-                    dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = string.Format("{0} rate son attaque", opponentPokemon.GetName());
-                }
-                else {
-                    message = DoCapacity( opponentPokemon, playerPokemon, index);
-
-                    dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = message;
-
-                    if (playerPokemon.GetHealth() != 0)
-                    {
-                        Menu();
-                    }
-                    else {
-                        dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = string.Format("{0} est KO ", playerPokemon.GetName());
-                        ChangeToDialogue(dialogues.rivalDefeat);
-                    }
-                }
+                dialogueText.Add(
+                    string.Format("{0} rate son attaque", opponentPokemon.GetName())
+                );
             }
             else {
-                dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = string.Format("{0} est KO ", opponentPokemon.GetName());
-                ChangeToDialogue(dialogues.rivalVictory);
+                message = DoCapacity( opponentPokemon, playerPokemon, index);
+                dialogueText.Add(message);
+
+                if (playerPokemon.GetHealth() == 0)
+                {
+                    dialogueText.Add(
+                        string.Format("{0} est KO ", playerPokemon.GetName())
+                    );
+                    whoDied = WhoDied.player;
+                }
             }
         }
+        else {
+            dialogueText.Add(
+                string.Format("{0} est KO ", opponentPokemon.GetName())
+            );
+            whoDied = WhoDied.opponent;
+        }
+
+        AttackDialogue(dialogueText);
     }
 
     public void Pokemon()
@@ -145,6 +161,21 @@ public class BattleController : MonoBehaviour
         Destroy(gameObject.transform.GetChild(2).gameObject);
 
         return newMenu;
+    }
+
+    private void AttackDialogue(List<string> dialogueText)
+    {
+        GameObject dialogueBox = ChangeUI(fleeBox);
+
+        //Affiche les bons sprites et la premi�re partie du dialogue.
+        dialogueBox.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerPokemon.GetSprite();
+        dialogueBox.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = opponentPokemon.GetSprite();
+        dialogueBox.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = dialogueText[0];
+
+        //Retire la premi�re partie du dialogue qui a d�j� �t� affich� et g�n�re le bouton pour continuer le dialogue.
+        dialogueText.RemoveAt(0);
+
+        dialogueBox.transform.GetChild(2).gameObject.GetComponent<BattleButtonController>().SetDialogue(dialogueText);
     }
 
     private void ChangeToDialogue(List<string> dialogueText)
