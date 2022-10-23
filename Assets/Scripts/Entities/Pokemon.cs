@@ -11,6 +11,7 @@ public class Pokemon : MonoBehaviour
     private new string name; 
     private int level;    //Niveau du pokemon.
     private int index;    //Indice du pokemon dans le pokemon.
+    private Sprite pokemonSprite; //Sprite du pokemon.
 
     private int health; //Vie du pokemon à l'instant t.
     private int maxHealth; //Vie maximale du pokemon.
@@ -38,6 +39,7 @@ public class Pokemon : MonoBehaviour
         PokemonSheet sheet = pokedex.pokedex[pokemonIndex]; //va chercher la fiche du pokemon
 
         index = pokemonIndex;   //Remplit les valeurs de base.
+        pokemonSprite = sheet.sprite;
         name = sheet.name;
         maxHealth = sheet.baseStats[0];
         attack = sheet.baseStats[1];
@@ -69,6 +71,11 @@ public class Pokemon : MonoBehaviour
         return name;
     }
 
+    public Sprite GetSprite() //Donne le sprite du pokemon.
+    {
+        return pokemonSprite;
+    }
+
     public int GetLevel() //Donne le niveau du pokemon
     {
         return level;
@@ -89,7 +96,7 @@ public class Pokemon : MonoBehaviour
         modifiers[statsIndex] = newModifier;
     }
 
-    public List<float> GetModiiers() //Récupère tous les modificateurs
+    public List<float> GetModifiers() //Récupère tous les modificateurs
     {
         return modifiers;
     }
