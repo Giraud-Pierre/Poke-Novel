@@ -9,7 +9,7 @@ public class GenerateMoveChoice : MonoBehaviour
     correctement les boutons de choix des destinations. */
 
     //Récupère la table indiquant vers quel lieu le joueur peut se déplacer à partir du lieu où il est.
-    [SerializeField] private MovementTable MovementTable = default; 
+    [SerializeField] private MovementTable movementTable = default; 
 
     [SerializeField] private GameObject buttonPrefab = default; //Prefab du bouton destination.
 
@@ -25,19 +25,19 @@ public class GenerateMoveChoice : MonoBehaviour
         switch (player.GetLocation())
         {
             case "Chambre":
-                GenerateButton(MovementTable.Bedroom);
+                GenerateButton(movementTable.Bedroom);
                 break ;
             case "Salon":
-                GenerateButton(MovementTable.Livingroom);
+                GenerateButton(movementTable.Livingroom);
                 break ;
             case "Village":
-                GenerateButton(MovementTable.Village);
+                GenerateButton(movementTable.Village);
                 break;
             case "Maison du rival":
-                GenerateButton(MovementTable.RivalHouse);
+                GenerateButton(movementTable.RivalHouse);
                 break;
             case "Laboratoire":
-                GenerateButton(MovementTable.Laboratory);
+                GenerateButton(movementTable.Laboratory);
                 break;
         }
     }
