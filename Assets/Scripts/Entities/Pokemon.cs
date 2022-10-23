@@ -10,11 +10,16 @@ public class Pokemon : MonoBehaviour
     //nom du pokemon en remplaçant la donnée "name" de base hérité du MonoBehaviour (new)
     private new string name; 
     private int level;    //niveau du pokemon
+
     private int health; //vie du pokemon à l'instant t
     private int maxHealth; //vie maximale du pokemon
+
+    //statistiques du pokemon.
     private int attack;
     private int defense;
     private int speed;
+    List<float> modifiers = new List<float>(); //Modificateur temporaire qui seront modifé pendant un combat.
+
     private List<CapacitySheet> capacities = new List<CapacitySheet>(); //liste des attaques du pokemon
 
     /*Crée le pokemon à partir de son numéro, du pokedex et de la liste des attaques.
@@ -68,7 +73,22 @@ public class Pokemon : MonoBehaviour
         return new List<int> { maxHealth,attack,defense,speed};
     }
 
-    public void SetHealt(int newHealth) //permet de changer la vie du pokemon.
+    public void InitializeModifiers() //Initialise les modificateurs au début du combat.
+    {
+        modifiers = new List<float> { 1, 1, 1 };
+    }
+
+    public void SetModifier(float newModifier, int statsIndex) //modifie un modificateur.
+    {
+        modifiers[statsIndex] = newModifier;
+    }
+
+    public List<float> GetModiiers() //Récupère tous les modificateurs
+    {
+        return modifiers;
+    }
+
+    public void SetHealth(int newHealth) //permet de changer la vie du pokemon.
     {
         //Vérifie que la vie que l'on essaye de mettre rentre dans les critère.
         if (newHealth <= maxHealth && newHealth >= 0) 
@@ -104,6 +124,10 @@ public class Pokemon : MonoBehaviour
 
     /*Méthodes pour obtenir les caractéristiques des attaques, dans l'ordre:
     le nom, le type d'attaque, la puissance de l'attaque et sa précision.*/
+    public int GetNumberCapacities()
+    {
+        return capacities.Count;
+    }
     public string GetCapacityName(int index) 
     {
         return capacities[index].name;
