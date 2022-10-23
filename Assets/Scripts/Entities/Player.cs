@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     
     public Pokemon GetPokemon(int index) //Donne un pokemon du joueur.
     {
-        if (pokemons.Count != 0) //vérifie que le joueur a au moins un pokemon.
+        if (index < pokemons.Count) //vérifie que l'on demande un pokemon qui existe.
         {
             return pokemons[index];
         }

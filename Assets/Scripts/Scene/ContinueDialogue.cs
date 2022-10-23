@@ -49,11 +49,11 @@ public class ContinueDialogue : MonoBehaviour
         }
 
         //si le dialogue est fini et que le joueur vient de choisir son pokemon
-        else if (dialogue.Count == 0 && laboratory == 2)
+        /*else if (dialogue.Count == 0 && laboratory == 2)
         {
             //Debug.Log(GameObject.Find("Canvas").GetComponent<Player>().GetPokemon(0).GetName()); //TEMP Comment acc�der au pokemon. TEMP
             GameObject.Find("Canvas").GetComponent<BattleController>().StartBattle();
-        }
+        }*/
 
         //Si le dialogue est fini et que l'on n'est pas dans un des cas pr�c�dents
         else if (dialogue.Count == 0) 
